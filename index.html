@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Literacy App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="C:\Users\Sakshi\Desktop\BACKEND\pbl\IMAGES\MY LOGO.png" alt="Financial Literacy App Logo">
+      <h1>Financial Literacy App</h1>
+      <p>Your go-to guide for financial education</p>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#account">ACCOUNTS</a></li> 
+        <li><a href="#cards">CARDS</a></li>
+        <li><a href="#transactions">ONLINE TRANSACTIONS</a></li>
+        <li><a href="#investments">INVESTMENTS</a></li>
+        <li><a href="#insurance">INSURANCE</a></li>
+        <li><a href="#calculator">FINANCIAL CALCULATOR</a></li>
+        
+        <li><a href="#chatbot">CHATBOT</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <!-- Financial Calculator Section -->
+      <section id="calculatorSection" style="display: none;">
+        <h2>Financial Calculator</h2>
+        <div class="calculator">
+          <input type="text" id="result" readonly>
+
+          <div class="buttons">
+            <!-- Operand buttons -->
+            <div class="operand-buttons">
+              <button onclick="appendToResult('7')">7</button>
+              <button onclick="appendToResult('8')">8</button>
+              <button onclick="appendToResult('9')">9</button>
+              <button onclick="appendToResult('4')">4</button>
+              <button onclick="appendToResult('5')">5</button>
+              <button onclick="appendToResult('6')">6</button>
+              <button onclick="appendToResult('1')">1</button>
+              <button onclick="appendToResult('2')">2</button>
+              <button onclick="appendToResult('3')">3</button>
+              <button onclick="appendToResult('0')">0</button>
+              <button onclick="appendToResult('.')">.</button>
+            </div>
+            <!-- Operator buttons -->
+            <div class="operator-buttons">
+              <button onclick="appendToResult('+')">+</button>
+              <button onclick="appendToResult('-')">-</button>
+              <button onclick="appendToResult('*')">*</button>
+              <button onclick="appendToResult('/')">/</button>
+            </div>
+            
+            <div class="additional-functionalities">
+              <button onclick="calculate()">=</button>
+              <button onclick="removeLastChar()">←</button>
+              <button onclick="calculateSimpleInterest()">SI</button>
+              <button onclick="calculateCompoundInterest()">CI</button>
+              <button onclick="convertCurrency()">Convert</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
+      <section id="accountSection" style="display: none;">
+        <h2>Account Section</h2>
+        <ul>
+          <li><a href="#current-account">Current Account</a></li>
+          <li><a href="#joint-account">Joint Account</a></li>
+          <li><a href="#business-account">Business Account</a></li>
+        </ul>
+
+       
+        <div id="current-account" class="account-details">
+          <h3>Current Account</h3>
+          <p>Information about current account...</p>
+        </div>
+
+   
+        <div id="joint-account" class="account-details">
+          <h3>Joint Account</h3>
+          <p>Information about joint account...</p>
+        </div>
+
+        <!-- Business Account -->
+        <div id="business-account" class="account-details">
+          <h3>Business Account</h3>
+          <p>Information about business account...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Financial Literacy App</p>
+    </div>
+  </footer>
+
+  <script src="calculator.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const calculatorLink = document.querySelector('a[href="#calculator"]');
+      const accountLink = document.querySelector('a[href="#account"]');
+      const calculatorSection = document.getElementById('calculatorSection');
+      const accountSection = document.getElementById('accountSection');
+
+      calculatorLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        calculatorSection.style.display = 'block';
+        accountSection.style.display = 'none';
+      });
+
+      accountLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        accountSection.style.display = 'block';
+        calculatorSection.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
